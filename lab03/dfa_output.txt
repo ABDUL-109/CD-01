@@ -1,0 +1,15 @@
+Enter number of NFA states: Enter number of input symbols: 
+Enter NFA transitions (1 if exists, else 0)
+From q0 on symbol 0:
+  To q0:   To q1:   To q2: From q0 on symbol 1:
+  To q0:   To q1:   To q2: From q1 on symbol 0:
+  To q0:   To q1:   To q2: From q1 on symbol 1:
+  To q0:   To q1:   To q2: From q2 on symbol 0:
+  To q0:   To q1:   To q2: From q2 on symbol 1:
+  To q0:   To q1:   To q2: 
+DFA TRANSITION TABLE
+-------------------
+State	0	1	
+q0	q1	q2		{ q0 }
+q1	q1	q2		{ q1 }
+q2	q2	q2		{ q2 }
