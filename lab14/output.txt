@@ -1,0 +1,1 @@
+Live variables at exit: a, b, c

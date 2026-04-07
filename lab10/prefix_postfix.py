@@ -1,13 +1,26 @@
+def precedence(op):
+    if op in ('+', '-'):
+        return 1
+    if op in ('*', '/'):
+        return 2
+    return 0
+
+
 def infix_to_postfix(exp):
     stack = []
     result = ""
-    prec = {'+':1, '-':1, '*':2, '/':2}
 
     for char in exp:
         if char.isalnum():
             result += char
+        elif char == '(':
+            stack.append(char)
+        elif char == ')':
+            while stack and stack[-1] != '(':
+                result += stack.pop()
+            stack.pop()
         else:
-            while stack and prec.get(stack[-1], 0) >= prec.get(char, 0):
+            while stack and precedence(stack[-1]) >= precedence(char):
                 result += stack.pop()
             stack.append(char)
 
@@ -19,7 +32,15 @@ def infix_to_postfix(exp):
 
 def infix_to_prefix(exp):
     exp = exp[::-1]
-    exp = exp.replace('(', 'temp').replace(')', '(').replace('temp', ')')
+
+    exp = list(exp)
+    for i in range(len(exp)):
+        if exp[i] == '(':
+            exp[i] = ')'
+        elif exp[i] == ')':
+            exp[i] = '('
+    exp = "".join(exp)
+
     postfix = infix_to_postfix(exp)
     return postfix[::-1]
 

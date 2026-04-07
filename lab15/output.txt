@@ -1,0 +1,1 @@
+Stack after operations: ['a']
