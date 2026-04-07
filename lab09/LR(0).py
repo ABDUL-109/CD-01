@@ -26,7 +26,7 @@ productions = [
 
 items = {"S->.CC"}
 
-result = "\n".join(closure(items, productions))
+result = "\n".join(sorted(closure(items, productions)))
 print(result)
 
 with open("output.txt", "w") as f:
