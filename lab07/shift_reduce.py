@@ -39,9 +39,19 @@ while True:
         print("Accept")
         break
 
-    # Shift
-    stack.append(input_string.pop(0))
-    print("Shift")
-
-    # Try reducing
+    # Try reducing first
+    prev_stack = stack.copy()
     check()
+
+    # If reduction happened, skip shift
+    if prev_stack != stack:
+        print("Reduce")
+        continue
+
+    # Shift only if input is not empty
+    if len(input_string) > 0:
+        stack.append(input_string.pop(0))
+        print("Shift")
+    else:
+        print("Error: Cannot shift, input empty")
+        break
