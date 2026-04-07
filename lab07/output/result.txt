@@ -1,0 +1,21 @@
+Enter input string: 
+Stack		Input		Action
+		id+id*id$		Shift
+i		d+id*id$		Shift
+id		+id*id$		Reduce: id -> E
+Reduce
+E		+id*id$		Shift
+E+		id*id$		Shift
+E+i		d*id$		Shift
+E+id		*id$		Reduce: id -> E
+Reduce
+E+E		*id$		Reduce: E+E -> E
+Reduce
+E		*id$		Shift
+E*		id$		Shift
+E*i		d$		Shift
+E*id		$		Reduce: id -> E
+Reduce
+E*E		$		Reduce: E*E -> E
+Reduce
+E		$		Accept
