@@ -17,10 +17,20 @@ def infix_to_postfix(exp):
     return result
 
 
-exp = input("Enter expression: ")
-postfix = infix_to_postfix(exp)
+def infix_to_prefix(exp):
+    exp = exp[::-1]
+    exp = exp.replace('(', 'temp').replace(')', '(').replace('temp', ')')
+    postfix = infix_to_postfix(exp)
+    return postfix[::-1]
 
-result = f"Postfix: {postfix}"
+
+exp = input("Enter expression: ")
+
+postfix = infix_to_postfix(exp)
+prefix = infix_to_prefix(exp)
+
+result = f"Postfix: {postfix}\nPrefix: {prefix}"
+
 print(result)
 
 with open("output.txt", "w") as f:
